@@ -2,7 +2,7 @@ module Work
   module Git
     BRANCH_PREFIX = "work_"
     def self.all_work_branches
-      branches = `git branch`.split("\n").map {|l| l.gsub(/\W/, "").trim }
+      branches = `git branch`.split("\n").map {|l| l.gsub(/\W/, "").strip }
       pp branches
     end
     def self.current_branch_name
