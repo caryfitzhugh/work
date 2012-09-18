@@ -7,9 +7,9 @@ module Work
   def self.run(command, args)
     case command.downcase
     when 'setup'
-      Work::Setup.execute(command, args)
+      Work::Setup.execute(args)
     when 'create'
-      Work::Create.execute(command, args)
+      Work::Create.execute(args)
     else
       puts "Huh?"
     end

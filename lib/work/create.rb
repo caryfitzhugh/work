@@ -1,7 +1,7 @@
 module Work
   module Create
-    def self.execute(command, args)
-      puts "Creating the work -- #{command} #{args}"
+    def self.execute(args)
+      puts "Creating the work -- #{args}"
     end
   end
 end

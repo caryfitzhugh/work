@@ -1,6 +1,6 @@
 module Work
   module Setup
-    def self.execute(command, args)
+    def self.execute(args)
       puts "Setup Work..."
       new_options = {}
       Work::Configuration.config_options.each_pair do |name, value|
