@@ -1,5 +1,12 @@
 module Work
   module Pivotal
+    def self.stories
+      self.project.stories.all
+    end
+
+    def self.find_story(id)
+      self.project.stories.find(id)
+    end
 
     def self.project
       if !@project
@@ -8,5 +15,6 @@ module Work
       end
       @project
     end
+
   end
 end

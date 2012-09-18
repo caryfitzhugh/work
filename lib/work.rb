@@ -6,6 +6,7 @@ require "work/current"
 require "work/git"
 require "work/pivotal"
 require "work/utils"
+require "work/story"
 require 'pp'
 
 module Work
