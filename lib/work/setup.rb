@@ -6,10 +6,10 @@ module Work
       Work::Configuration.config_options.each_pair do |name, value|
         puts "#{name}  (#{value}):"
         input = gets
-        if (input.blank?)
+        if (input.strip == "")
           new_options[name] = value
         else
-          new_options[name] = input
+          new_options[name] = input.strip
         end
       end
       puts "Configuration Completed..."
