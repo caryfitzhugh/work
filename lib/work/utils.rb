@@ -1,7 +1,7 @@
 module Work
   module Utils
 
-    def self.get_story_id_and_title(arg)
+    def self.get_story(arg)
       if arg
         if issue = Work::Pivotal.find_story(arg)
           issue
