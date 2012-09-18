@@ -19,7 +19,7 @@ module Work
 
     def self.save_options(options)
       File.open(DATA_FILE, 'w') do |f|
-        f.write OPTIONS.merge(options).to_yaml
+        YAML::dump(options, f)
       end
     end
   end
