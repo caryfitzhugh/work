@@ -7,6 +7,8 @@ module Work
     case command.downcase
     when 'setup'
       Work::Setup.execute(command, args)
+    when 'create'
+      Work::Create.execute(command, args)
     else
       puts "Huh?"
     end
