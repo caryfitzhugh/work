@@ -34,7 +34,7 @@ module Work
 
     def self.from_branchname(branchname)
       id, title = branchname.gsub(/^#{BRANCH_PREFIX}/,'').split('_', 2)
-      title.gsub!("_", " ")
+      title = title.gsub("_", " ")
       [id, title]
     end
   end
