@@ -13,7 +13,7 @@ module Work
 
     def self.config_options
       if File.exist?(DATA_FILE)
-        OPTIONS.merge(YAML::load_file(DATA_FILE))
+        OPTIONS.merge(YAML::load_file(DATA_FILE) || {})
       else
         OPTIONS
       end
