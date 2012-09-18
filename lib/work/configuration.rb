@@ -1,5 +1,6 @@
 module Work
   class Configuration
+    DATA_FILE = ".work"
     OPTIONS = {
        :pivotal_key => "update",
        :pivotal_username => "update",
