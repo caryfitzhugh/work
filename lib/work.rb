@@ -1,6 +1,7 @@
 require "work/version"
 require "work/setup"
 require "work/configuration"
+require "work/create"
 
 module Work
   def self.run(command, args)
