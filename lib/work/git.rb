@@ -3,7 +3,7 @@ module Work
     BRANCH_PREFIX = "work_"
     def self.all_work_branches
       branches = `git branch`.split("\n").map {|l| l.gsub(/\W/, "").strip }
-      pp branches
+      branches.select {|branch| branch =~ /^#{BRANCH_PREFIX}.+/ }
     end
     def self.current_branch_name
       `git rev-parse --abbrev-ref HEAD`
