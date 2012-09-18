@@ -1,9 +1,6 @@
 module Work
   module Pivotal
     module StoryExtension
-      def link
-        "http://pivotaltracker.com/projects/#{Work::Configuration.config_options[:pivotal_project_id]}/stories/#{@id}"
-      end
     end
     def self.stories
       self.project.stories.all.map do |story|

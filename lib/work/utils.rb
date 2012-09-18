@@ -22,7 +22,7 @@ module Work
       while input.to_i < 0 || input.to_i > stories.index
         stories.each do |story|
           puts "#{index}) #{story.title}"
-          puts "     #{story.link}"
+          puts "     #{story.url}"
           puts
         end
         input = gets
