@@ -6,6 +6,7 @@ module Work
     OPTIONS = {
        :pivotal_key => "update",
        :pivotal_username => "update",
+       :pivotal_project  => "update",
        :git_remote  => "working",
        :browser     => "chrome",
        :irc         => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
