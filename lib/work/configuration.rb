@@ -13,7 +13,7 @@ module Work
       if File.exist?(DATA_FILE)
         OPTIONS.merge(YAML::load_file(DATA_FILE))
       else
-        raise "You need to run setup to configure your workflow"
+        OPTIONS
       end
     end
 
