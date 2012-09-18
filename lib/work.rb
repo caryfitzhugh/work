@@ -1,4 +1,5 @@
 require "work/version"
+require "work/setup"
 
 module Work
   def self.run(command, args)
