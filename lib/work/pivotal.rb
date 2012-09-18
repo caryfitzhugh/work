@@ -1,17 +1,27 @@
 module Work
   module Pivotal
+    module StoryExtension
+      def link
+        "http://pivotaltracker.com/projects/#{Work::Configuration.config_options[:pivotal_project_id]}/stories/#{@id}"
+      end
+    end
     def self.stories
-      self.project.stories.all
+      self.project.stories.all.map do |story|
+        story.extend StoryExtension
+        story
+      end
     end
 
     def self.find_story(id)
-      self.project.stories.find(id)
+      story = self.project.stories.find(id)
+      story.extend StoryExtension
+      story
     end
 
     def self.project
       if !@project
         PivotalTracker::Client.token = Work::Configuration.config_options[:pivotal_key]
-        @project = PivotalTracker::Project.find(Work::COnfiguration.config_options[:pivotal_project_id])
+        @project = PivotalTracker::Project.find(Work::Configuration.config_options[:pivotal_project_id])
       end
       @project
     end
