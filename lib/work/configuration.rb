@@ -4,9 +4,9 @@ module Work
   class Configuration
     DATA_FILE = ".work"
     OPTIONS = {
-       :pivotal_key => "update",
-       :pivotal_username => "update",
-       :pivotal_project  => "update",
+       :pivotal_key         => "update",
+       :pivotal_project_id  => "607607",
+       :pivotal_username    => "update",
        :git_remote  => "working",
        :browser     => "chrome",
        :irc         => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
