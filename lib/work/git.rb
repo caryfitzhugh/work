@@ -1,6 +1,10 @@
 module Work
   module Git
     BRANCH_PREFIX = "work_"
+    def self.all_work_branches
+      branches = `git branch`.split("\n")
+      pp branches
+    end
     def self.current_branch_name
       `git rev-parse --abbrev-ref HEAD`
     end
