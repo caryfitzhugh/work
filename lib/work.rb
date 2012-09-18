@@ -4,6 +4,8 @@ require "work/configuration"
 require "work/create"
 require "work/current"
 require "work/git"
+require "work/pivotal"
+require "work/utils"
 require 'pp'
 
 module Work
@@ -15,8 +17,11 @@ module Work
       Work::Current.execute(args)
     when 'create'
       Work::Create.execute(args)
+    when 'finish'
+      Work::Finish.execute(args)
     else
-      puts "Huh?"
+      # We show the current working branches...
+      # And they pick the number to resume on.
     end
   end
 end

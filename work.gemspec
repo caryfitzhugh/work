@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "work"
   gem.require_paths = ["lib"]
   gem.version       = Work::VERSION
+  gems = ['pivotal-tracker']
+  gem.add_development_dependency gems
+  gem.add_runtime_dependency gems
 end
