@@ -1,5 +1,7 @@
 require "work/version"
 
 module Work
-  # Your code goes here...
+  def self.run(command, args)
+
+  end
 end
