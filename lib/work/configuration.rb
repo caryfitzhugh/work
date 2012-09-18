@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Work
   class Configuration
     DATA_FILE = ".work"
