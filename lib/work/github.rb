@@ -31,7 +31,7 @@ module Work
         :repo => target_repository
        ).pull_requests.create(
           title: story.name,
-          body: "Put all the commits in here, for the differences, and add something on top about this being for pivotal issue X (with url)"
+          body: "Put all the commits in here, for the differences, and add something on top about this being for pivotal issue X (with url)",
           base: target_branch,
           head: "#{self.remote_url}:#{Work::Git.to_branchname(story)}"
         )
