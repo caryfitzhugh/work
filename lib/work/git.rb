@@ -1,7 +1,6 @@
-jmodule Work
+module Work
   module Git
     BRANCH_PREFIX = "work_"
-
 
     def self.push_current
       `git push`
