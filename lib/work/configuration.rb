@@ -7,10 +7,15 @@ module Work
        :pivotal_key         => "update",
        :pivotal_project_id  => "607607",
        :pivotal_username    => "update",
-       :git_remote  => "working",
-       :browser     => "chrome",
-       :irc         => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
+       :github_user         => "caryfitzhugh",
+       :github_repository   => "ziplist",
+       :github_token        => "https://",
+       :irc                 => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
      }
+
+    def self.method_missing(method, args)
+      self.config_options(method)
+    end
 
     def self.config_options
       if File.exist?(DATA_FILE)
@@ -19,7 +24,6 @@ module Work
         OPTIONS
       end
     end
-
     def self.save_options(options)
       File.open(DATA_FILE, 'w') do |f|
         YAML::dump(options, f)

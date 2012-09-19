@@ -1,6 +1,11 @@
-module Work
+jmodule Work
   module Git
     BRANCH_PREFIX = "work_"
+
+
+    def self.push_current
+      `git push`
+    end
 
     def self.all_work_branches
       branches = `git branch`.split("\n").map {|l| l.gsub(/\W/, "").strip }
@@ -15,8 +20,8 @@ module Work
       current_branch_name =~ BRANCH_PREFIX
     end
 
-    def self.create_branch(issue_id, issue_title)
-      branch = self.to_branchname(issue_id, issue_title)
+    def self.create_branch(story)
+      branch = self.to_branchname(story)
       # Make it track to workflow
       source_branch = ENV['WORK_SOURCE_BRANCH'] || 'master'
       `git co #{source_branch}`
@@ -25,11 +30,17 @@ module Work
     end
 
     def self.git_remote
-      Work::Configuration.config_options[:git_remote]
+      Work::Github.remote_name
     end
 
-    def self.to_branchname(id, title)
-      "#{BRANCH_PREFIX}_#{id}_#{title}".underscore.downcase
+    def self.add_remote
+      url = Work::Github.remote_url
+      name = Work::Github.remote_name
+      `git remote add -f #{name} #{url}`
+    end
+
+    def self.to_branchname(story)
+      "#{BRANCH_PREFIX}_#{story.id}_#{story.name}".underscore.downcase
     end
 
     def self.from_branchname(branchname)

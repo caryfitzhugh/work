@@ -13,6 +13,9 @@ module Work
         end
       end
       Work::Configuration.save_options(new_options)
+
+      puts "adding work remote to git"
+      Work::Git.add_remote
       puts "Configuration Completed..."
     end
   end

@@ -1,3 +1,5 @@
+require 'pivotal-tracker'
+
 module Work
   module Pivotal
     module StoryExtension
