@@ -7,9 +7,9 @@ module Work
        :pivotal_key         => "update",
        :pivotal_project_id  => "607607",
        :pivotal_username    => "update",
-       :github_user         => "caryfitzhugh",
        :github_repository   => "ziplist",
        :github_credentials  => "user:pass",
+       :pull_target         => "Ziplist:ziplist/master",
        :irc                 => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
      }
 
@@ -24,6 +24,22 @@ module Work
         OPTIONS
       end
     end
+    def self.pull_target_repository_name
+      self.pull_target.split(":").second.split("/").first
+    end
+
+    def self.pull_target_branch
+      self.pull_target.split(":").second.split("/").second
+    end
+
+    def self.pull_target_user
+      self.pull_target.split(":").first
+    end
+
+    def self.github_user
+      self.github_credentials.split(":").first
+    end
+
     def self.save_options(options)
       File.open(DATA_FILE, 'w') do |f|
         YAML::dump(options, f)

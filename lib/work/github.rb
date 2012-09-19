@@ -4,13 +4,21 @@ module Work
     def self.create_pull_request(story)
       target_repository = Work::Configuration.pull_target_repository_name
       target_branch     = Work::Configuration.pull_target_branch
+      target_user       = Work::Configuration.pull_target_user
 
       puts "Create a pull request from this issue pointing at:"
+      puts "user: #{target_user} - or enter a new one:"
+      input = gets
+      if (input.trim != '')
+        target_user = input.trim
+      end
+
       puts "repo: #{target_repository} - or enter a new one:"
       input = gets
       if (input.trim != '')
         target_repository = input.trim
       end
+
       puts "branch: #{target_branch} - or enter a new one:"
       input = gets
       if (input.trim != '')
@@ -19,7 +27,7 @@ module Work
 
       #  http://developer.github.com/v3/pulls/#create-a-pull-request
       self.github.repos.find(
-        :user => Work::Configuration.github_user,
+        :user => target_user,
         :repo => target_repository
        ).pull_requests.create(
           title: story.name,
@@ -41,7 +49,7 @@ module Work
     end
 
     def self.github
-      Github.new(:oauth_token => Work::Configuration.github_token)
+      Github.new(:basic_auth => Work::Configuration.github_credentials)
     end
   end
 end
