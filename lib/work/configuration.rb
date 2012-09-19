@@ -10,7 +10,6 @@ module Work
        :github_repository   => "ziplist",
        :github_credentials  => "user:pass",
        :pull_target         => "Ziplist:ziplist/master",
-       :irc                 => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
      }
 
     def self.method_missing(method, args)

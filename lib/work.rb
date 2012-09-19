@@ -4,6 +4,7 @@ require "work/configuration"
 require "work/create"
 require "work/current"
 require "work/git"
+require "work/github"
 require "work/pivotal"
 require "work/utils"
 require 'pp'
