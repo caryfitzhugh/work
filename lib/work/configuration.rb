@@ -9,7 +9,7 @@ module Work
        :pivotal_username    => "update",
        :github_user         => "caryfitzhugh",
        :github_repository   => "ziplist",
-       :github_token        => "https://",
+       :github_credentials  => "user:pass",
        :irc                 => 'http://ziplist@ziplistrocks:fragglerock.ziplist.com:8080/'
      }
 
