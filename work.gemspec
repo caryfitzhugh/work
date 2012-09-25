@@ -15,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Work::VERSION
 
-  gem.add_development_dependency "pivotal-tracker"
+  gem.add_development_dependency "pry"
   gem.add_runtime_dependency     "pivotal-tracker"
+  gem.add_runtime_dependency     "system_timer"
+  gem.add_runtime_dependency     "github_api"
 end

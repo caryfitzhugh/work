@@ -30,10 +30,10 @@ module Work
         :user => target_user,
         :repo => target_repository
        ).pull_requests.create(
-          title: story.name,
-          body: "Put all the commits in here, for the differences, and add something on top about this being for pivotal issue X (with url)",
-          base: target_branch,
-          head: "#{self.remote_url}:#{Work::Git.to_branchname(story)}"
+          :title => story.name,
+          :body => "Put all the commits in here, for the differences, and add something on top about this being for pivotal issue X (with url)",
+          :base => target_branch,
+          :head => "#{self.remote_url}:#{Work::Git.to_branchname(story)}"
         )
     end
 
@@ -45,11 +45,19 @@ module Work
     end
 
     def self.repo
-      repo = self.githubs.repos :user => Work::Configuration.github_user, :repo => Work::Configuration.github_repository
+      repo = self.github.repos :user => Work::Configuration.github_user, :repo => Work::Configuration.github_repository
     end
 
     def self.github
-      Github.new(:basic_auth => Work::Configuration.github_credentials)
+      if @github
+        @github
+      else
+        @github = ::Github.new do |config|
+          config.basic_auth = Work::Configuration.github_credentials
+        end
+        @github
+      end
+
     end
   end
 end
